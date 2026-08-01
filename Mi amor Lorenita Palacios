@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Para Lorena</title>
+<style>
+  body{margin:0;background:radial-gradient(circle,#4a0d1f,#140208);color:#fff;font-family:Arial;display:flex;align-items:center;justify-content:center;min-height:100vh;overflow:hidden}
+  .card{background:rgba(0,0,0,.45);padding:28px;border-radius:22px;max-width:650px;width:90%;text-align:center;backdrop-filter:blur(8px);border:1px solid #ff6b9a}
+  button{padding:12px 20px;border:none;border-radius:30px;background:#ff4d6d;color:#fff;font-size:18px;cursor:pointer;margin-top:10px}
+  .yt-btn{display:inline-block;margin-top:15px;padding:12px 20px;border-radius:30px;background:#ff0000;color:#fff;text-decoration:none;font-size:18px;font-weight:bold;}
+  .yt-btn:hover{background:#cc0000;}
+  #letter{display:none;margin-top:20px}
+  .f{position:fixed;top:-5vh;animation:fall linear forwards}
+  @keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:.3}}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>Feliz Día de la Novia</h1>
+  <h2>Lorena Palacios</h2>
+  <p>Gracias por llenar mi vida de amor. Cada día contigo confirma que eres mi persona favorita.</p>
+  <h3 id="counter"></h3>
+  <button onclick="document.getElementById('letter').style.display='block'">Abrir carta</button>
+  <div id="letter">
+    <p>Mi amor, desde octubre de 2025 cada momento contigo ha sido un regalo. Gracias por tu cariño, tu paciencia y por acompañarme. Espero seguir escribiendo nuestra historia por muchos años más. Te amo con todo mi corazón.</p>
+  </div>
+  <br>
+  <!-- Enlace actualizado a YouTube -->
+  <a href="https://youtu.be/v5Wl9_14GTY?si=SPkzoLewBLq0FBaT" target="_blank" class="yt-btn">🎵 Escuchar "Eso y más" - Joan Sebastian</a>
+</div> 
+<script>
+  const start=new Date('2025-10-01');
+  function upd(){
+    let n=new Date(),d=Math.floor((n-start)/86400000);
+    counter.textContent="Llevamos aproximadamente "+d+" días juntos";
+  }
+  upd();
+  setInterval(()=>{
+    let e=document.createElement('div');
+    e.className='f';
+    e.textContent='❤️';
+    e.style.left=Math.random()*100+'vw';
+    e.style.fontSize=(20+Math.random()*20)+'px';
+    e.style.animationDuration=(4+Math.random()*3)+'s';
+    document.body.appendChild(e);
+    setTimeout(()=>e.remove(),7000);
+  },250);
+</script>
+</body>
+</html>
